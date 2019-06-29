@@ -6,4 +6,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <!-- Searchbar with cancel button shown on focus -->
+  <ion-searchbar #query showCancelButton="focus" (keyup.enter)="searchRepo(query.value)"> </ion-searchbar>
+
+  <div class="repo-list">
+    <ion-list>
+      <ion-item *ngFor="let repo of repos">
+        <ion-label>
+          <h3>{{repo.full_name}}</h3>
+          <p>{{repo.description}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
